@@ -1,0 +1,239 @@
+/* Dune-inspired decorative layer — circular geometry + the radiating gold
+   motif, used sparingly (hero + a few section transitions), never as
+   literal icons. All elements here are aria-hidden, non-interactive, and
+   z-indexed at --z-hero-canvas so they always sit behind real content. */
+
+.halo {
+  position: absolute;
+  pointer-events: none;
+  z-index: var(--z-hero-canvas);
+  border-radius: 50%;
+  filter: blur(var(--blur-halo));
+  animation: halo-drift 22s ease-in-out infinite;
+}
+
+.halo--gold {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-gold) 65%, transparent), transparent 72%);
+}
+
+.halo--amber {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-amber) 58%, transparent), transparent 72%);
+}
+
+.halo--violet {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-violet) 40%, transparent), transparent 72%);
+}
+
+.halo--red {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-red) 34%, transparent), transparent 72%);
+}
+
+.halo--green {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-green) 44%, transparent), transparent 72%);
+}
+
+.halo--cyan {
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-cyan) 38%, transparent), transparent 72%);
+}
+
+.halo--lg {
+  width: 640px;
+  height: 640px;
+}
+
+.halo--md {
+  width: 420px;
+  height: 420px;
+}
+
+.halo--sm {
+  width: 280px;
+  height: 280px;
+}
+
+/* One-off placement: a warm glow behind the Contact section heading
+   ("warm glow behind important sections" per the design doc). */
+.halo--contact-heading {
+  top: -60px;
+  left: 50%;
+  margin-left: -210px;
+}
+
+/* Reusable corner placements — each section drops one of these behind its
+   heading so the hazy-blob look (first introduced in the hero) recurs
+   throughout the site instead of being a one-off. Negative offsets are
+   safe: body has overflow-x hidden, and any vertical bleed is decorative
+   only (aria-hidden, pointer-events: none). */
+.halo--top-left {
+  top: -70px;
+  left: -100px;
+}
+
+.halo--top-right {
+  top: -70px;
+  right: -100px;
+}
+
+.halo--bottom-left {
+  bottom: -70px;
+  left: -100px;
+}
+
+.halo--bottom-right {
+  bottom: -70px;
+  right: -100px;
+}
+
+@keyframes halo-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2%, -3%) scale(1.06);
+  }
+}
+
+/* Thin circle outline — concentric rings / partial arcs. Sits inside a
+   height-constrained, overflow-hidden .section-divider so only a crescent
+   of the ring is ever visible ("partial arcs disappearing off screen"
+   rather than a full circle dropped on the page). Blurred (not a crisp
+   1px stroke) so it reads as soft haze consistent with the halos around
+   it instead of a hard line cutting across the transition. */
+.arc-ring {
+  position: absolute;
+  pointer-events: none;
+  z-index: var(--z-hero-canvas);
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--color-gold) 35%, transparent);
+  filter: blur(3px);
+}
+
+.section-divider {
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.section-divider .arc-ring {
+  width: 900px;
+  height: 900px;
+  left: 50%;
+  top: 0;
+  margin-left: -450px;
+  margin-top: -780px;
+}
+
+/* Radiating gold motif — a CSS reinterpretation of dune.spiral.jpg's
+   sunburst linework (thin rays fading from a hollow ring) rather than a
+   repeated raster asset. Opacity is pinned via --opacity-motif so it can
+   only ever read as a discoverable detail, never a bold graphic. */
+.sunburst {
+  position: absolute;
+  pointer-events: none;
+  z-index: var(--z-hero-canvas);
+  border-radius: 50%;
+  opacity: var(--opacity-motif);
+  background: repeating-conic-gradient(from 0deg, var(--color-gold) 0deg 1.2deg, transparent 1.2deg 6deg);
+  mask-image: radial-gradient(circle, transparent 0%, transparent 16%, black 24%, black 60%, transparent 88%);
+  -webkit-mask-image: radial-gradient(
+    circle,
+    transparent 0%,
+    transparent 16%,
+    black 24%,
+    black 60%,
+    transparent 88%
+  );
+}
+
+.sunburst--hero {
+  width: 900px;
+  height: 900px;
+  left: 50%;
+  bottom: -420px;
+  margin-left: -450px;
+}
+
+/* Sitewide continuous motif — a fixed, very faint version of the sunburst
+   that runs the full height of the page (doesn't scroll away with the
+   hero) so the gold linework feels cohesive rather than a one-off hero
+   flourish. Masked to the page margins outside the readable column, so it
+   never sits behind body copy — on narrower viewports where there is no
+   real margin left, it's hidden outright rather than crowding text. */
+.site-rays {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-hero-canvas);
+  pointer-events: none;
+  opacity: var(--opacity-motif-field);
+  background: repeating-conic-gradient(from 0deg at 50% 50%, var(--color-gold) 0deg 0.5deg, transparent 0.5deg 5deg);
+  mask-image: linear-gradient(90deg, black 0%, black 10%, transparent 28%, transparent 72%, black 90%, black 100%);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    black 0%,
+    black 10%,
+    transparent 28%,
+    transparent 72%,
+    black 90%,
+    black 100%
+  );
+}
+
+@media (max-width: 900px) {
+  .site-rays {
+    display: none;
+  }
+}
+
+/* Ambient section tints — each section washes very faintly in its own
+   accent color (the same one used for its halo/heading), so scrolling
+   through the page reads as a sequence of distinct, colorful rooms rather
+   than one flat cream backdrop with a few isolated decorations.
+
+   Sized as a fixed-radius circle (not a percentage of the section's own
+   box) anchored near the heading, so it always fully fades to transparent
+   well before reaching the section's own edges — regardless of how tall
+   or short that particular section is. This matters: a percentage-based
+   fade that hadn't finished by a short section's bottom edge would butt
+   directly against the NEXT section's different-colored tint starting at
+   full strength at its own top edge, reading as a hard seam. Keeping both
+   sides settled back to plain --color-bg well before any boundary is the
+   same fix used for the hero->About transition, applied here. */
+#about {
+  background: radial-gradient(650px circle at 85% 0%, color-mix(in srgb, var(--color-green) 6%, transparent), transparent 100%);
+}
+
+#timeline {
+  background: radial-gradient(650px circle at 10% 0%, color-mix(in srgb, var(--color-violet) 7%, transparent), transparent 100%);
+}
+
+#projects {
+  background: radial-gradient(650px circle at 90% 0%, color-mix(in srgb, var(--color-red) 5%, transparent), transparent 100%);
+}
+
+#leadership {
+  background: radial-gradient(650px circle at 10% 0%, color-mix(in srgb, var(--color-violet) 6%, transparent), transparent 100%);
+}
+
+#travel {
+  background: radial-gradient(650px circle at 90% 0%, color-mix(in srgb, var(--color-cyan) 6%, transparent), transparent 100%);
+}
+
+#resume {
+  background: radial-gradient(650px circle at 90% 0%, color-mix(in srgb, var(--color-cyan) 6%, transparent), transparent 100%);
+}
+
+#fitness {
+  background: radial-gradient(650px circle at 10% 0%, color-mix(in srgb, var(--color-green) 7%, transparent), transparent 100%);
+}
+
+#contact {
+  background: radial-gradient(600px circle at 50% 0%, color-mix(in srgb, var(--color-gold) 8%, transparent), transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .halo {
+    animation: none;
+  }
+}

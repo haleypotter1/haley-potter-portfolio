@@ -1,0 +1,9 @@
+.env
+oauth1_token.json
+.venv/
+__pycache__/
+node_modules/
+dist/
+
+# Personal reference material — not site content, has phone/location info
+Resume.txt

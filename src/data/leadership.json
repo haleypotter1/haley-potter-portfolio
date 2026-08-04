@@ -1,0 +1,62 @@
+{
+  "items": [
+    {
+      "id": "next-innovation-scholars",
+      "title": "NEXT Innovation Scholars Program",
+      "organization": "University of Cincinnati",
+      "role": "Innovation Scholar",
+      "date": "Aug 2024 — Present",
+      "pillar": "leader",
+      "summary": "1 of 14 students selected nationally for a cohort-based scholarship program focused on transdisciplinary innovation projects — the only incoming high school graduate chosen for the cohort.",
+      "highlights": [
+        "Hands-on experience in strategic foresight and design thinking through projects for corporate and UC internal partners.",
+        "Conducted landscape research identifying leading indicators as part of the Strategic Foresight Futures Research project (Sep–Dec 2024)."
+      ],
+      "isSample": false
+    },
+    {
+      "id": "ceas-tribunal-innovation-intern",
+      "title": "Innovation Challenge Intern",
+      "organization": "College of Engineering and Applied Science Tribunal, University of Cincinnati",
+      "role": "Intern",
+      "date": "2024 — Present",
+      "pillar": "leader",
+      "summary": "Hones leadership and communication skills through involvement with the CEAS Tribunal, engaging in innovative-thinking initiatives across the college.",
+      "highlights": [],
+      "isSample": false
+    },
+    {
+      "id": "sample-swe-event-lead",
+      "title": "[Sample] Event Coordinator",
+      "organization": "[Sample] Society of Women Engineers, UC Chapter",
+      "role": "Coordinator",
+      "date": "2025",
+      "pillar": "leader",
+      "summary": "[Sample] Organized professional-development events connecting engineering students with industry mentors.",
+      "highlights": [],
+      "isSample": true
+    },
+    {
+      "id": "sample-habitat-volunteer",
+      "title": "[Sample] Volunteer Team Lead",
+      "organization": "[Sample] Habitat for Humanity, Cincinnati",
+      "role": "Team Lead",
+      "date": "2024",
+      "pillar": "leader",
+      "summary": "[Sample] Led a student volunteer crew on weekend home-building projects.",
+      "highlights": [],
+      "isSample": true
+    },
+    {
+      "id": "sample-engineering-ambassadors",
+      "title": "[Sample] Peer Mentor",
+      "organization": "[Sample] Engineering Ambassadors Network",
+      "role": "Mentor",
+      "date": "2025",
+      "pillar": "leader",
+      "summary": "[Sample] Mentored prospective students exploring chemical engineering as a major.",
+      "highlights": [],
+      "isSample": true
+    }
+  ]
+}

@@ -1,0 +1,925 @@
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  transition: height var(--duration-base) var(--ease-out-expo),
+    background var(--duration-base) var(--ease-out-expo);
+}
+
+.site-nav .container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-main {
+  padding-top: var(--nav-height);
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-xl);
+}
+
+.section-heading .eyebrow {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: var(--fs-xs);
+  color: var(--color-cyan-ink);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Hero */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-hero-canvas);
+  overflow: hidden;
+  /* The warm haze wash itself now lives on body (base.css) so it can
+     continue past the hero's bottom edge instead of hard-cutting off —
+     this element just contains/positions the hero-only decorations
+     (sunburst, reference-image accent, Three.js ambient canvas). */
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /* Cheap route to soft ambient blobs — blur simple 3D spheres via CSS
+     instead of a real post-processing bloom pass. */
+  filter: blur(48px);
+  transition: opacity 0.7s var(--ease-out-expo);
+  /* Fade the canvas out before it reaches the hero's bottom edge instead
+     of being sharply clipped there — a hard-edged rectangle was showing
+     through the blur where #home's overflow:hidden cut it off. */
+  mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 96%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 70%, transparent 96%);
+}
+
+.hero-canvas.is-active {
+  opacity: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: var(--z-content);
+  max-width: 46rem;
+}
+
+.hero-content .eyebrow {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: var(--fs-xs);
+  color: var(--color-cyan-ink);
+  margin-bottom: var(--space-sm);
+}
+
+.hero-content p:not(.eyebrow) {
+  font-size: var(--fs-lg);
+  max-width: 40ch;
+  margin-top: var(--space-sm);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-content);
+}
+
+.scroll-indicator__mouse {
+  display: flex;
+  justify-content: center;
+  width: 26px;
+  height: 42px;
+  padding-top: 8px;
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+}
+
+.scroll-indicator__dot {
+  width: 4px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-link);
+  /* Fade only, no translateY loop — the design doc bans continuous bouncing. */
+  animation: scroll-dot-fade 2.4s ease-in-out infinite;
+}
+
+@keyframes scroll-dot-fade {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* About */
+.about-grid {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: start;
+  margin-bottom: var(--space-xl);
+}
+
+.about-bio p {
+  font-size: var(--fs-lg);
+  max-width: 62ch;
+}
+
+.about-photo {
+  aspect-ratio: 4 / 5;
+  max-width: 320px;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sample-note {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* Timelines (Education / Experience) — stacked cards on narrow viewports;
+   becomes a horizontal alternating timeline at --timeline-breakpoint (below). */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.timeline-item {
+  list-style: none;
+}
+
+.timeline-item__connector,
+.timeline-item__dot {
+  display: none;
+}
+
+/* Its own row above the dates/title stack (not sharing a flex row with
+   them) so a wrapping multi-line date/title in a narrow card column never
+   collides with or misaligns against the button. */
+.timeline-item__head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-2xs);
+}
+
+.timeline-item__dates {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: var(--fs-xs);
+  color: var(--color-cyan-ink);
+  margin-bottom: var(--space-3xs);
+}
+
+/* Title cards inherit the global h3 size (--fs-xl, ~28-36px), which is
+   sized for full-width section headings, not a narrow 1-of-5 column —
+   long titles wrapped into many lines while short ones stayed tiny,
+   leaving cards visibly uneven. Scoping a smaller, consistent size here
+   keeps every card's title reading at roughly the same scale/line count. */
+.timeline-item__card h3 {
+  font-size: var(--fs-base);
+  line-height: 1.35;
+}
+
+.timeline-item__credential {
+  margin-top: var(--space-3xs);
+}
+
+.timeline-item__panel {
+  height: 0;
+}
+
+.timeline-item__summary {
+  margin-top: var(--space-sm);
+}
+
+.timeline-item__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  margin-top: var(--space-sm);
+  padding-left: var(--space-md);
+}
+
+.timeline-item__highlights li {
+  list-style: disc;
+  color: var(--color-text-muted);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-sm);
+}
+
+/* Horizontal timeline — a single row of cards (not an alternating
+   above/below zigzag), each hanging off one shared line via its own dot
+   + connector. Cards use flex: 1 with min-width: 0 so long titles wrap
+   within their own column instead of forcing a fixed 280px card. */
+@media (min-width: 900px) {
+  .timeline {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-md);
+    position: relative;
+    padding-top: 44px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-border);
+  }
+
+  .timeline-item {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+    padding-top: 28px;
+  }
+
+  .timeline-item__dot {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: var(--color-link);
+    border: 3px solid var(--color-bg);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .timeline-item__connector {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 28px;
+    background: var(--color-border);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item__card {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Fitness dashboard */
+.fitness-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .fitness-stats {
+    /* auto-fit instead of a hardcoded count so a 5th tile (or a future
+       6th) distributes evenly instead of leaving a lopsided gap. */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+.fitness-panels {
+  display: grid;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+/* Just the Mileage panel now (1RM/Volume dropped — real Garmin data has
+   no weight/rep fields), so it stays full-width instead of the old
+   2-column grid leaving an empty half. */
+
+.fitness-panel {
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.fitness-panel.glass {
+  border-top: 2px solid color-mix(in srgb, var(--color-green) 55%, transparent);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.chart-toggle {
+  display: flex;
+  gap: var(--space-3xs);
+}
+
+.chart-toggle .filter-btn {
+  padding: var(--space-3xs) var(--space-sm);
+  font-size: var(--fs-xs);
+}
+
+.chart-wrap {
+  position: relative;
+  height: 340px;
+}
+
+.fitness-lists {
+  display: grid;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 900px) {
+  .fitness-lists {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fitness-list {
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.fitness-list.glass {
+  border-top: 2px solid color-mix(in srgb, var(--color-green) 55%, transparent);
+}
+
+.fitness-list h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.fitness-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.fitness-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  padding-block: var(--space-3xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fitness-list li:last-child {
+  border-bottom: none;
+}
+
+.fitness-list li span:first-child {
+  color: var(--color-text);
+}
+
+/* Projects */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-lg);
+}
+
+.projects-grid {
+  columns: 1;
+  column-gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    columns: 3;
+  }
+}
+
+.project-card {
+  break-inside: avoid;
+  margin-bottom: var(--space-md);
+  cursor: pointer;
+}
+
+.project-card.is-hidden {
+  display: none;
+}
+
+.project-card__media {
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.project-card__tagline {
+  margin-top: var(--space-2xs);
+}
+
+/* Leadership */
+.leadership-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .leadership-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.leadership-card {
+  cursor: pointer;
+}
+
+.leadership-card__summary {
+  margin-top: var(--space-sm);
+}
+
+/* Travel map */
+.travel-controls {
+  display: flex;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-md);
+}
+
+.travel-map-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  cursor: grab;
+  /* pan-y (not none) so a vertical swipe keeps scrolling the page past the
+     map on touch devices — same fix as the desktop wheel handler below. */
+  touch-action: pan-y;
+}
+
+.travel-map-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.travel-map-mount {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travel-map-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.map-zoom-controls {
+  position: absolute;
+  right: var(--space-sm);
+  bottom: var(--space-sm);
+  z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.map-zoom-controls button {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-base);
+  line-height: 1;
+  border-radius: var(--radius-sm);
+}
+
+.map-hint {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-xs);
+  text-align: center;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background: rgba(33, 30, 26, 0.4);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out-expo);
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-panel {
+  position: relative;
+  max-width: 34rem;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transform: scale(0.94);
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+
+.modal-overlay.is-open .modal-panel {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+}
+
+.modal-eyebrow {
+  text-transform: capitalize;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-cyan-ink);
+}
+
+.modal-date {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Resume */
+.resume-layout {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+  .resume-layout {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+.resume-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.resume-highlights .btn {
+  align-self: flex-start;
+}
+
+.resume-embed {
+  padding: 0;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.resume-embed object {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+/* Contact */
+.contact-layout {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.form-field input,
+.form-field textarea {
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-bg-mid);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  resize: vertical;
+}
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.form-note {
+  font-size: var(--fs-xs);
+  color: var(--color-green-ink);
+  min-height: 1.2em;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-self: start;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--duration-fast) var(--ease-out-expo),
+    transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  border-color: var(--color-link);
+  transform: translateY(-2px);
+}
+
+/* Command palette */
+.palette-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 var(--space-sm);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 640px) {
+  .palette-trigger {
+    display: inline-flex;
+  }
+}
+
+.palette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-palette);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 12vh;
+  padding-inline: var(--space-md);
+  background: rgba(33, 30, 26, 0.4);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.palette-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.palette-panel {
+  width: 100%;
+  max-width: 32rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transform: translateY(-8px);
+  transition: transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.palette-overlay.is-open .palette-panel {
+  transform: translateY(0);
+}
+
+.palette-input {
+  width: 100%;
+  font: inherit;
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+.palette-input:focus {
+  outline: none;
+}
+
+.palette-list {
+  max-height: 18rem;
+  overflow-y: auto;
+  padding: var(--space-2xs);
+}
+
+.palette-item {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.palette-item.is-active {
+  background: color-mix(in srgb, var(--color-violet) 12%, transparent);
+  color: var(--color-violet-ink);
+}
+
+.palette-empty {
+  padding: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* Loader — decorative only; fades via CSS transition, independent of
+   content rendering underneath (see main.js playIntro) */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  opacity: 1;
+  transition: opacity 0.6s var(--ease-out-expo);
+}
+
+.loader.loader--hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader__mark {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  transition: opacity 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
+}
+
+.loader--hide .loader__mark {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Nav actions / mobile menu */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 26px;
+}
+
+.menu-toggle span {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-text);
+}
+
+@media (max-width: 767px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity var(--duration-fast) var(--ease-out-expo),
+      transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .nav-links.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}

@@ -1,0 +1,186 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  /* Warm haze wash — lives on body (not the hero section) so it isn't
+     capped at the hero's bottom edge. Sized to the viewport (160vh) and
+     anchored to the top of the page: it peaks gently around where the
+     hero ends (~58-60% of that box) and eases back to flat --color-bg
+     before Education, so scrolling past the hero never hits a hard
+     color seam. Everything below that band is just --color-bg. */
+  background-color: var(--color-bg);
+  background-image: radial-gradient(
+      circle at 50% 58%,
+      color-mix(in srgb, var(--color-amber) 15%, transparent),
+      transparent 45%
+    ),
+    radial-gradient(circle at 20% 8%, color-mix(in srgb, var(--color-violet) 6%, transparent), transparent 40%),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 38%,
+      color-mix(in srgb, var(--color-gold) 9%, transparent) 58%,
+      transparent 100%
+    );
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 160vh;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--duration-base) var(--ease-out-expo),
+    color var(--duration-base) var(--ease-out-expo);
+  overflow-x: hidden;
+}
+
+/* Fine grain — a sandstone-paper texture discoverable on close inspection,
+   not a visible pattern. Fixed + blended so it reads as atmosphere over the
+   whole page without darkening or competing with content underneath. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--fs-3xl);
+}
+h2 {
+  font-size: var(--fs-2xl);
+}
+h3 {
+  font-size: var(--fs-xl);
+}
+h4 {
+  font-size: var(--fs-lg);
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+section {
+  position: relative;
+  padding: var(--space-2xl) var(--space-md);
+  scroll-margin-top: var(--nav-height-scrolled);
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-inline: var(--space-lg);
+  }
+}
+
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-sm);
+  z-index: var(--z-palette);
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  transition: top var(--duration-fast) var(--ease-out-expo);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

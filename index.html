@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <meta name="theme-color" content="#f9f3e8" />
+    <title>Haley Potter — Engineer · Leader · Explorer · Athlete · Builder</title>
+    <meta
+      name="description"
+      content="Portfolio of Haley Potter, Chemical Engineering and MBA student at the University of Cincinnati — engineer, leader, explorer, athlete, and builder."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/css/variables.css" />
+    <link rel="stylesheet" href="/src/css/base.css" />
+    <link rel="stylesheet" href="/src/css/atmosphere.css" />
+    <link rel="stylesheet" href="/src/css/layout.css" />
+    <link rel="stylesheet" href="/src/css/components.css" />
+    <link rel="stylesheet" href="/src/css/animations.css" />
+    <link rel="stylesheet" href="/src/css/themes.css" />
+  </head>
+  <body>
+    <div class="site-rays" aria-hidden="true"></div>
+
+    <div class="loader" data-loader aria-hidden="true">
+      <span class="loader__mark">HP</span>
+    </div>
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" data-scroll-progress></div>
+
+    <header class="site-nav glass">
+      <div class="container">
+        <a class="nav-logo" href="#home">Haley Potter</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#projects">Projects</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#travel">Travel</a>
+          <a href="#resume">Resume</a>
+          <a href="#fitness">Off the Clock</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="palette-trigger" type="button" data-palette-trigger aria-label="Open command palette">
+            <span aria-hidden="true">⌘K</span>
+          </button>
+          <button
+            class="menu-toggle"
+            type="button"
+            data-menu-toggle
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="site-main">
+      <section id="home">
+        <div class="hero-bg" data-hero-bg>
+          <span class="sunburst sunburst--hero" aria-hidden="true"></span>
+          <canvas class="hero-canvas" data-hero-canvas aria-hidden="true"></canvas>
+        </div>
+        <div class="container hero-content">
+          <p class="eyebrow" data-animate>Chemical Engineer · MBA Student · Researcher · Leader</p>
+          <h1 data-animate>Haley Potter</h1>
+          <p data-animate>
+            Engineer, leader, explorer, athlete, builder — currently pursuing a B.S. in Chemical
+            Engineering and an MBA at the University of Cincinnati.
+          </p>
+          <div class="hero-cta" data-animate>
+            <a class="btn btn--primary" data-magnetic href="#projects">View My Work</a>
+            <a class="btn btn--ghost" data-magnetic href="#contact">Get In Touch</a>
+          </div>
+        </div>
+        <a class="scroll-indicator" href="#about" aria-label="Scroll to About section">
+          <span class="scroll-indicator__mouse"><span class="scroll-indicator__dot"></span></span>
+        </a>
+      </section>
+
+      <section id="about">
+        <span class="halo halo--green halo--md halo--top-right" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">About</span>
+            <h2>Who I am</h2>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"><span class="arc-ring"></span></div>
+
+      <section id="timeline">
+        <span class="halo halo--violet halo--lg halo--top-left" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Timeline</span>
+            <h2>My Journey</h2>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"><span class="arc-ring"></span></div>
+
+      <section id="projects">
+        <span class="halo halo--red halo--md halo--top-right" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <span class="eyebrow">Projects</span>
+            <h2>What I've built</h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership">
+        <span class="halo halo--violet halo--md halo--top-left" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <span class="eyebrow">Leadership</span>
+            <h2>How I lead</h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="travel">
+        <span class="halo halo--cyan halo--md halo--top-right" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <span class="eyebrow">Travel</span>
+            <h2>Where I've been</h2>
+          </div>
+          <div class="travel-controls" role="group" aria-label="Switch map" data-animate>
+            <button type="button" class="map-switch-btn is-active" data-map-switch="us" aria-pressed="true">
+              United States
+            </button>
+            <button type="button" class="map-switch-btn" data-map-switch="world" aria-pressed="false">
+              World
+            </button>
+          </div>
+          <div class="travel-map-viewport" data-travel-viewport data-animate>
+            <div class="travel-map-mount" data-travel-map-mount></div>
+            <div class="map-zoom-controls">
+              <button type="button" data-map-zoom-in aria-label="Zoom in">+</button>
+              <button type="button" data-map-zoom-out aria-label="Zoom out">−</button>
+              <button type="button" data-map-zoom-reset aria-label="Reset zoom">⤾</button>
+            </div>
+          </div>
+          <p class="map-hint" data-animate>Click + / − to zoom (or Ctrl/Cmd + scroll), drag to pan, click a hotspot for details.</p>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"><span class="arc-ring"></span></div>
+
+      <section id="resume">
+        <span class="halo halo--cyan halo--md halo--top-right" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <span class="eyebrow">Resume</span>
+            <h2>Full history</h2>
+          </div>
+          <div class="resume-layout">
+            <div class="resume-highlights" data-animate>
+              <h3>Quick highlights</h3>
+              <ul class="timeline-item__highlights">
+                <li>Chemical Engineering &amp; MBA student at the University of Cincinnati</li>
+                <li>NEXT Innovation Scholar — 1 of 14 selected nationally</li>
+                <li>Manufacturing Operations Co-op at SABIC</li>
+                <li>Peer Leader mentoring first-year engineering students</li>
+              </ul>
+              <a class="btn btn--primary" href="/resume.pdf" download data-magnetic>Download Resume (PDF)</a>
+            </div>
+            <div class="resume-embed card glass" data-animate>
+              <object data="/resume.pdf" type="application/pdf" aria-label="Haley Potter's resume">
+                <div class="card--placeholder">
+                  Resume PDF coming soon — add it at <code>public/resume.pdf</code>.
+                </div>
+              </object>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="fitness">
+        <span class="halo halo--green halo--lg halo--top-left" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <span class="eyebrow">Off the Clock</span>
+            <h2>Training Log</h2>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"><span class="arc-ring"></span></div>
+
+      <section id="contact">
+        <span class="halo halo--gold halo--md halo--contact-heading" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <span class="eyebrow">Contact</span>
+            <h2>Let's talk</h2>
+          </div>
+          <div class="contact-layout">
+            <form class="contact-form" data-contact-form data-animate novalidate>
+              <label class="form-field">
+                <span>Name</span>
+                <input type="text" name="name" required autocomplete="name" />
+              </label>
+              <label class="form-field">
+                <span>Email</span>
+                <input type="email" name="email" required autocomplete="email" />
+              </label>
+              <label class="form-field">
+                <span>Message</span>
+                <textarea name="message" rows="5" required></textarea>
+              </label>
+              <button class="btn btn--primary" type="submit" data-magnetic>Send Message</button>
+              <p class="form-note" data-contact-status role="status" aria-live="polite"></p>
+            </form>
+            <div class="contact-links" data-animate>
+              <a class="contact-link contact-link--email" href="mailto:potterht@mail.uc.edu">
+                <span class="eyebrow">Email</span>
+                potterht@mail.uc.edu
+              </a>
+              <a class="contact-link contact-link--linkedin" href="https://www.linkedin.com/in/haley-potter-" target="_blank" rel="noopener noreferrer">
+                <span class="eyebrow">LinkedIn</span>
+                linkedin.com/in/haley-potter-
+              </a>
+              <a class="contact-link contact-link--resume" href="/resume.pdf" download>
+                <span class="eyebrow">Resume</span>
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "id": "uc-chemical-engineering",
+      "institution": "University of Cincinnati — College of Engineering and Applied Science",
+      "credential": "B.S. Chemical Engineering & MBA",
+      "startDate": "2024-08",
+      "endDate": "2029-05",
+      "current": true,
+      "honors": [
+        "Strategic Foresight Futures Research (Sep 2024 – Dec 2024) — conducted landscape research to identify leading indicators, developed into drivers of the future through the strategic foresight methodology, as part of the NEXT Innovation Scholars program."
+      ],
+      "logo": null
+    },
+    {
+      "id": "summit-country-day",
+      "institution": "The Summit Country Day School",
+      "credential": "High School Diploma",
+      "startDate": "2020-08",
+      "endDate": "2024-05",
+      "current": false,
+      "honors": [],
+      "logo": null
+    }
+  ]
+}

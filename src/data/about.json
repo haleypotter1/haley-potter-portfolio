@@ -1,0 +1,11 @@
+{
+  "bio": "Haley Potter is a Chemical Engineering and MBA student at the University of Cincinnati, where she was selected as one of just 14 students nationwide for the NEXT Innovation Scholars program — the only incoming high school graduate chosen that year — conducting strategic foresight research for corporate and university partners. She has since built hands-on technical and leadership experience as a Manufacturing Operations Co-op at SABIC and as a Peer Leader mentoring first-year engineering students through weekly lessons and one-on-one guidance. Driven by a lifelong-learning mindset and a passion for innovative thinking, she pairs technical skills in polymer chemistry, data analysis, and SAP MM with a genuine curiosity for the people and ideas around her.",
+  "photo": null,
+  "stats": [
+    { "id": "engineering-roles", "label": "Engineering & Research Roles", "value": 3, "suffix": "", "isSample": false },
+    { "id": "leadership-roles", "label": "Leadership & Mentorship Roles", "value": 2, "suffix": "", "isSample": false },
+    { "id": "states", "label": "States Visited", "value": 9, "suffix": "+", "isSample": true },
+    { "id": "miles-run", "label": "Miles Run", "value": 1200, "suffix": "+", "isSample": true },
+    { "id": "organizations", "label": "Organizations Involved", "value": 6, "suffix": "+", "isSample": true }
+  ]
+}

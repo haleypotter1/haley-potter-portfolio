@@ -1,0 +1,33 @@
+/* Non-GSAP keyframes — CSS fallback effects and small decorative loops that
+   don't need scroll-scrubbing/timeline control */
+
+/* One-shot reveal (not a continuous loop — the design doc forbids rapid
+   pulsing / large glowing effects) used for the travel-map hotspot glow. */
+@keyframes glow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-spin {
+  animation: spin 1s linear infinite;
+}
+
+[data-animate] {
+  opacity: 0;
+}
+
+.js-ready [data-animate] {
+  opacity: 1;
+}

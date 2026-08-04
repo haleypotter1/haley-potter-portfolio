@@ -1,0 +1,57 @@
+{
+  "items": [
+    {
+      "id": "sabic-mfg-coop",
+      "role": "Manufacturing Operations Co-op",
+      "organization": "SABIC",
+      "location": "Mt. Vernon, Indiana",
+      "startDate": "2026-01",
+      "endDate": null,
+      "current": true,
+      "type": "co-op",
+      "pillar": "engineer",
+      "summary": "Manufacturing operations co-op supporting production processes at SABIC's Mt. Vernon, Indiana facility.",
+      "highlights": [],
+      "skills": ["SAP Materials Management", "Melt Polymer Chemistry", "Data Analysis"],
+      "logo": null
+    },
+    {
+      "id": "uc-peer-leader",
+      "role": "Peer Leader",
+      "organization": "University of Cincinnati",
+      "location": "Cincinnati, Ohio",
+      "startDate": "2025-08",
+      "endDate": null,
+      "current": true,
+      "type": "leadership",
+      "pillar": "leader",
+      "summary": "",
+      "highlights": [
+        "Facilitate weekly classes for 2 sections of 21 first-year engineering students, using lesson plans designed to support their academic, professional, and personal growth.",
+        "Create and deliver engaging, unique hour-long lesson plans that help students adjust to college life and develop key skills for success.",
+        "Provide one-on-one mentoring to monitor students' academic progress and well-being, offering guidance and resources as needed."
+      ],
+      "skills": ["Mentoring", "Curriculum Design", "Public Speaking"],
+      "logo": null
+    },
+    {
+      "id": "fresh-thyme-grocery-clerk",
+      "role": "Grocery Clerk",
+      "organization": "Fresh Thyme Market",
+      "location": "Cincinnati, Ohio",
+      "startDate": "2022-04",
+      "endDate": null,
+      "current": true,
+      "type": "part-time",
+      "pillar": "builder",
+      "summary": "",
+      "highlights": [
+        "Practiced organization skills in stock management.",
+        "Learned to work autonomously and confidently, managing other employees' duties.",
+        "Built long-lasting relationships with coworkers and managers through teamwork and collaboration."
+      ],
+      "skills": ["Organization", "Teamwork", "Autonomy"],
+      "logo": null
+    }
+  ]
+}

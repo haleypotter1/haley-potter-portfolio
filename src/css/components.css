@@ -1,0 +1,486 @@
+/* Base eyebrow typography — section-heading/hero override the color, but
+   project cards and contact links previously had no base rule at all and
+   rendered as plain unstyled text. */
+.eyebrow {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* Glass surface — shared base for nav, cards, modal, palette */
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--color-border);
+}
+
+.site-nav.glass {
+  background: color-mix(in srgb, var(--color-bg) 70%, transparent);
+}
+
+.site-nav.is-scrolled {
+  height: var(--nav-height-scrolled);
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  color: var(--color-text);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  position: relative;
+  padding-block: var(--space-3xs);
+  transition: color var(--duration-fast) var(--ease-out-expo);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--color-link);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.nav-links a:hover,
+.nav-links a.is-active {
+  color: var(--color-text);
+}
+
+.nav-links a.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-sm) 1.75rem;
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: transform var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
+}
+
+.btn--primary {
+  background: var(--color-red);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  box-shadow: 0 10px 24px rgba(254, 32, 53, 0.18);
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--ghost:hover {
+  background: var(--color-bg-mid);
+  border-color: var(--color-text-muted);
+}
+
+/* Card */
+.card {
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.card--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  min-height: 160px;
+}
+
+.card.glass {
+  border-radius: var(--radius-md);
+}
+
+/* Stat tiles — subtle accent border rather than a saturated fill (doc:
+   "Cards should use subtle colored borders...rather than fully saturated
+   backgrounds"). Green marks these as metrics/progress cards. */
+.stat-tile {
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.stat-tile.glass {
+  border-top: 2px solid color-mix(in srgb, var(--color-green) 55%, transparent);
+}
+
+.stat-tile__value {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--color-green-ink);
+}
+
+.stat-tile__label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* Timeline item card */
+.timeline-item__card {
+  position: relative;
+}
+
+.timeline-item.is-open .timeline-item__card {
+  border-color: var(--color-link);
+}
+
+.expand-trigger {
+  flex-shrink: 0;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  padding: var(--space-3xs) var(--space-sm);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.expand-trigger:hover,
+.timeline-item.is-open .expand-trigger {
+  color: var(--color-link);
+  border-color: var(--color-link);
+}
+
+.tag {
+  font-size: var(--fs-xs);
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-green) 16%, transparent);
+  color: var(--color-green-ink);
+}
+
+/* Filter buttons */
+.filter-btn {
+  font-size: var(--fs-sm);
+  padding: var(--space-2xs) var(--space-md);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
+}
+
+.filter-btn.is-active {
+  color: #ffffff;
+  background: var(--color-select);
+  border-color: var(--color-select);
+}
+
+/* Fitness Weekly/Monthly toggle reuses .filter-btn but should read as a
+   metrics control, not a "creative selection" one — override to green. */
+.chart-toggle .filter-btn.is-active {
+  color: #ffffff;
+  background: var(--color-green-ink);
+  border-color: var(--color-green-ink);
+}
+
+/* Project / leadership cards */
+.project-card,
+.leadership-card {
+  transition: transform var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.project-card:hover,
+.leadership-card:hover,
+.project-card:focus-visible,
+.leadership-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--color-text-muted);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Leadership = violet in the doc's color system ("creativity/innovation"). */
+.leadership-card.glass {
+  border-top: 2px solid color-mix(in srgb, var(--color-violet) 45%, transparent);
+}
+
+/* Featured projects get a small red indicator (doc: red = "Featured projects") */
+.project-card--featured {
+  border-color: color-mix(in srgb, var(--color-red) 45%, var(--color-border));
+}
+
+/* Pillar-colored eyebrows — a pop of the relevant brand color per project
+   category (doc's existing color meanings: red=engineering, green=metrics/
+   progress, cyan=technology, violet=creativity/research). Leader has no
+   brand-color assignment in the doc, so it gets the warm gold token
+   instead of doubling up a brand color. */
+.project-card[data-pillar='engineer'] .eyebrow {
+  color: var(--color-red);
+}
+.project-card[data-pillar='athlete'] .eyebrow {
+  color: var(--color-green-ink);
+}
+.project-card[data-pillar='builder'] .eyebrow {
+  color: var(--color-cyan-ink);
+}
+.project-card[data-pillar='explorer'] .eyebrow {
+  color: var(--color-violet-ink);
+}
+.project-card[data-pillar='leader'] .eyebrow {
+  color: color-mix(in srgb, var(--color-gold) 70%, black);
+}
+
+/* Matching top-border so the pillar color reads even at a glance, not
+   just in the small eyebrow label. Featured cards keep their full red
+   border from .project-card--featured above instead of picking this up. */
+.project-card[data-pillar='engineer']:not(.project-card--featured) {
+  border-top: 2px solid color-mix(in srgb, var(--color-red) 45%, transparent);
+}
+.project-card[data-pillar='athlete']:not(.project-card--featured) {
+  border-top: 2px solid color-mix(in srgb, var(--color-green) 55%, transparent);
+}
+.project-card[data-pillar='builder']:not(.project-card--featured) {
+  border-top: 2px solid color-mix(in srgb, var(--color-cyan) 50%, transparent);
+}
+.project-card[data-pillar='explorer']:not(.project-card--featured) {
+  border-top: 2px solid color-mix(in srgb, var(--color-violet) 45%, transparent);
+}
+.project-card[data-pillar='leader']:not(.project-card--featured) {
+  border-top: 2px solid color-mix(in srgb, var(--color-gold) 60%, transparent);
+}
+
+.project-card__featured-badge {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--color-red);
+  margin-bottom: var(--space-2xs);
+}
+
+/* Map switch buttons */
+.map-switch-btn {
+  font-size: var(--fs-sm);
+  padding: var(--space-2xs) var(--space-md);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo),
+    background var(--duration-fast) var(--ease-out-expo);
+}
+
+.map-switch-btn.is-active {
+  color: #ffffff;
+  background: var(--color-cyan-ink);
+  border-color: var(--color-cyan-ink);
+}
+
+/* Map paths — shared look across both US and world SVGs. Land fill is
+   mixed with --color-text (not just a lighter neutral) so it reads
+   clearly against the page background instead of nearly disappearing
+   into it. */
+.travel-map-svg path:not(.connection-path),
+.travel-map-svg circle:not(.hotspot__glow):not(.hotspot__dot) {
+  fill: color-mix(in srgb, var(--color-primary) 78%, var(--color-text) 22%);
+  stroke: var(--color-bg);
+  stroke-width: 0.6;
+}
+
+/* The US map's "borders" (state-outline strokes) and "separator1" (the
+   Alaska/Hawaii inset dividers) groups are meant to be unfilled lines —
+   without this override they inherit the fill above and render as solid
+   filled wedges, breaking the Alaska/Hawaii insets in particular. Darker,
+   thicker stroke than --color-border (which is a very faint 0.12-alpha
+   token meant for hairline UI borders) so state lines stay legible. */
+.travel-map-svg g.borders path,
+.travel-map-svg path.separator1 {
+  fill: none;
+  stroke: color-mix(in srgb, var(--color-text) 55%, transparent);
+  stroke-width: 0.9;
+}
+
+/* Connections */
+.connection-path {
+  fill: none;
+  stroke: var(--color-link);
+  stroke-width: 1.4;
+  opacity: 0.75;
+}
+
+/* Map zoom controls */
+.map-zoom-controls button {
+  background: var(--color-glass-strong);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: background var(--duration-fast) var(--ease-out-expo),
+    border-color var(--duration-fast) var(--ease-out-expo);
+}
+
+.map-zoom-controls button:hover,
+.map-zoom-controls button:focus-visible {
+  background: var(--color-cyan-ink);
+  border-color: var(--color-cyan-ink);
+  color: #ffffff;
+}
+
+/* Hotspots */
+.hotspot {
+  cursor: pointer;
+}
+
+.hotspot--cluster-child {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out-expo);
+}
+
+.hotspot--cluster-child.is-revealed {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hotspot__badge {
+  fill: var(--color-bg-elevated);
+  font-family: var(--font-heading);
+  font-size: 7px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--color-select);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.hotspot__badge.is-hidden {
+  opacity: 0;
+}
+
+.hotspot__glow {
+  fill: var(--color-select);
+  opacity: 0.35;
+  animation: glow-in 0.6s var(--ease-out-expo) both;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.hotspot__dot {
+  fill: var(--color-select);
+  stroke: var(--color-bg-elevated);
+  stroke-width: 1.5;
+  paint-order: stroke;
+}
+
+.hotspot__label {
+  fill: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 9px;
+  paint-order: stroke;
+  stroke: var(--color-bg);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.hotspot:hover .hotspot__label,
+.hotspot:focus .hotspot__label,
+.hotspot:focus-visible .hotspot__label {
+  opacity: 1;
+}
+
+.hotspot:focus-visible .hotspot__dot {
+  outline: 2px solid var(--color-select);
+  outline-offset: 2px;
+}
+
+/* Contact link eyebrows — each channel gets its own accent so Contact
+   isn't monochrome cyan like every other "link" in the site. */
+.contact-link--email .eyebrow {
+  color: var(--color-cyan-ink);
+}
+.contact-link--linkedin .eyebrow {
+  color: var(--color-violet-ink);
+}
+.contact-link--resume .eyebrow {
+  color: var(--color-green-ink);
+}
+.contact-link--email {
+  border-top: 2px solid color-mix(in srgb, var(--color-cyan) 45%, transparent);
+}
+.contact-link--linkedin {
+  border-top: 2px solid color-mix(in srgb, var(--color-violet) 45%, transparent);
+}
+.contact-link--resume {
+  border-top: 2px solid color-mix(in srgb, var(--color-green) 50%, transparent);
+}
+
+/* Resume quick-highlights bullets pick up the "technology/links" cyan
+   instead of a plain neutral disc. */
+.resume-highlights .timeline-item__highlights li::marker {
+  color: var(--color-cyan-ink);
+}
+
+/* Timeline — education reads as violet ("research/innovation" per the doc),
+   experience reads as green ("progress"), instead of every dot being the
+   same cyan regardless of what kind of entry it is. */
+.timeline-item--education .timeline-item__dot {
+  background: var(--color-violet);
+}
+.timeline-item--education .timeline-item__dates {
+  color: var(--color-violet-ink);
+}
+.timeline-item--education .timeline-item__card {
+  border-top: 2px solid color-mix(in srgb, var(--color-violet) 45%, transparent);
+}
+.timeline-item--experience .timeline-item__dot {
+  background: var(--color-green);
+}
+.timeline-item--experience .timeline-item__dates {
+  color: var(--color-green-ink);
+}
+.timeline-item--experience .timeline-item__card {
+  border-top: 2px solid color-mix(in srgb, var(--color-green) 55%, transparent);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: var(--z-progress);
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-violet));
+}

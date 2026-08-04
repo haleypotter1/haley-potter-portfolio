@@ -1,0 +1,104 @@
+:root {
+  /* Color palette — Dune-inspired warm grounds: ivory/sand/stone instead of
+     neutral off-white. Four signature accents stay at their exact brand
+     hex (never retinted), distributed across specific components (see
+     --color-focus/--color-link/--color-select below and the direct
+     --color-green/--color-red usages) rather than aliased to one blanket
+     "accent" — kept deliberately small (<10% of any view). The new
+     --color-gold/--color-amber/--color-sunset tokens are environmental
+     only (haze, texture, glow) and frame the brand accents rather than
+     compete with them. */
+  --color-bg: #f9f3e8;
+  --color-bg-mid: #f0e3c9;
+  --color-bg-elevated: #fffbf3;
+  --color-primary: #e8dbc0;
+
+  --color-gold: #c9a464;
+  --color-amber: #d98f3e;
+  --color-sunset: #c1613a;
+
+  --color-red: #fe2035;
+  --color-green: #a4fe20;
+  --color-cyan: #20fee9;
+  --color-violet: #7a20fe;
+
+  /* Darkened "ink" variants for legible text/foreground use on light
+     surfaces — pure hex above stays reserved for borders, underlines,
+     dots, chart data, and chip fills where full saturation still reads. */
+  --color-red-ink: color-mix(in srgb, var(--color-red) 82%, black);
+  --color-green-ink: color-mix(in srgb, var(--color-green) 48%, black);
+  --color-cyan-ink: color-mix(in srgb, var(--color-cyan) 52%, black);
+  --color-violet-ink: color-mix(in srgb, var(--color-violet) 88%, black);
+
+  /* Narrow-purpose aliases — each names one interactive role rather than
+     funneling every accent use through a single "the accent" variable. */
+  --color-focus: var(--color-violet);
+  --color-link: var(--color-cyan);
+  --color-select: var(--color-violet);
+
+  --color-text: #2b2016;
+  --color-text-muted: #7c6f5a;
+  --color-border: rgba(43, 32, 22, 0.12);
+  --color-glass: rgba(255, 251, 243, 0.72);
+  --color-glass-strong: rgba(255, 251, 243, 0.88);
+
+  /* Fonts */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Type scale */
+  --fs-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.85rem);
+  --fs-sm: clamp(0.9rem, 0.86rem + 0.2vw, 1rem);
+  --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --fs-xl: clamp(1.75rem, 1.55rem + 1vw, 2.25rem);
+  --fs-2xl: clamp(2.25rem, 1.9rem + 1.75vw, 3.25rem);
+  --fs-3xl: clamp(3rem, 2.3rem + 3.5vw, 5rem);
+
+  /* Spacing scale */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 3.75rem;
+  --space-2xl: 4rem;
+  --space-3xl: 5.5rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --nav-height: 84px;
+  --nav-height-scrolled: 64px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.4s;
+  --duration-slow: 0.7s;
+
+  /* Effects — warm elevation ("light through dust"), no colored glow */
+  --blur-glass: blur(16px);
+  --shadow-glow: 0 16px 40px rgba(140, 90, 40, 0.14);
+  --shadow-soft: 0 20px 50px rgba(140, 90, 40, 0.1);
+
+  /* Atmosphere layer (see atmosphere.css) — sunburst opacity kept in the
+     5–12% range the design doc specifies, and a shared halo blur radius
+     so decorative circles read as soft light rather than flat shapes. */
+  --opacity-motif: 0.055;
+  --opacity-motif-field: 0.04;
+  --blur-halo: 70px;
+
+  /* z-index scale */
+  --z-hero-canvas: 0;
+  --z-content: 10;
+  --z-grain: 50;
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-palette: 300;
+  --z-progress: 400;
+}
