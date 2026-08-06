@@ -86,6 +86,12 @@ def sleep_vs_workout(df: pd.DataFrame) -> dict | None:
     d["next_workout_duration"] = d["workout_duration_minutes"].shift(-1)
     d["next_running_distance"] = d["running_distance_miles"].shift(-1)
     d["next_calories"] = d["calories"].shift(-1)
+    d["next_avg_heart_rate"] = d["average_heart_rate"].shift(-1)
+    d["next_pace_min_per_mile"] = np.where(
+        d["next_running_distance"] > 0,
+        d["next_workout_duration"] / d["next_running_distance"],
+        np.nan,
+    )
     d["sleep_bucket"] = _bucket_labels(d["sleep_score"], SLEEP_BUCKETS, SLEEP_BUCKET_LABELS)
 
     rolling_corr = (
@@ -96,7 +102,12 @@ def sleep_vs_workout(df: pd.DataFrame) -> dict | None:
 
     bucket_avg = _bucket_averages(
         d, "sleep_bucket",
-        {"avg_duration": "next_workout_duration", "avg_distance": "next_running_distance"},
+        {
+            "avg_duration": "next_workout_duration",
+            "avg_distance": "next_running_distance",
+            "avg_heart_rate": "next_avg_heart_rate",
+            "avg_pace": "next_pace_min_per_mile",
+        },
     )
 
     return {

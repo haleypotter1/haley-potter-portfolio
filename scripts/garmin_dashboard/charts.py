@@ -100,13 +100,25 @@ def sleep_vs_workout_chart(result: dict | None) -> bytes | None:
     ax = axes[2]
     bucket_avg = result["bucket_avg"]
     x = np.arange(len(bucket_avg))
-    width = 0.35
-    ax.bar(x - width / 2, bucket_avg["avg_duration"], width, label="Avg duration (min)", color=COLOR_PRIMARY)
-    ax.bar(x + width / 2, bucket_avg["avg_distance"], width, label="Avg distance (mi)", color=COLOR_ACCENT)
+    ax.bar(x, bucket_avg["avg_heart_rate"], width=0.5, color=COLOR_PRIMARY, label="Avg HR (bpm)")
     ax.set_xticks(x)
     ax.set_xticklabels(bucket_avg["sleep_bucket"], fontsize=8)
-    ax.set_title("Next-day workout by sleep-score bucket")
-    ax.legend(fontsize=7, frameon=False)
+    ax.set_ylabel("Avg heart rate (bpm)", color=COLOR_PRIMARY)
+    ax.tick_params(axis="y", labelcolor=COLOR_PRIMARY)
+
+    ax2 = ax.twinx()
+    ax2.plot(
+        x, bucket_avg["avg_pace"], color=COLOR_WARN, marker="o", markersize=5,
+        linewidth=1.8, label="Avg pace (min/mi)",
+    )
+    ax2.set_ylabel("Avg pace (min/mi)", color=COLOR_WARN)
+    ax2.tick_params(axis="y", labelcolor=COLOR_WARN)
+    ax2.grid(False)
+
+    ax.set_title("Next-day HR & pace by sleep-score bucket")
+    lines1, labels1 = ax.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax.legend(lines1 + lines2, labels1 + labels2, fontsize=7, frameon=False, loc="upper left")
 
     fig.suptitle(title, fontsize=12, fontweight="bold")
     fig.tight_layout(rect=[0, 0, 1, 0.90])
