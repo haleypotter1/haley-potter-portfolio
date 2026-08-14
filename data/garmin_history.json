@@ -796,5 +796,26 @@
     "calories": null,
     "steps": 2468,
     "updated_at": "2026-08-13T16:44:36.298880+00:00"
+  },
+  {
+    "date": "2026-08-14",
+    "sleep_score": 82,
+    "total_sleep_minutes": 397.0,
+    "deep_sleep_minutes": 67.0,
+    "hrv_status": "BALANCED",
+    "hrv_value": 96.0,
+    "resting_heart_rate": 45,
+    "body_battery_morning": 98,
+    "recovery_time_minutes": 526,
+    "acute_training_load": 488,
+    "training_status": "STRAINED",
+    "workout_type": "strength_training",
+    "workout_name": "Strength",
+    "workout_duration_minutes": 63.3,
+    "running_distance_miles": 0.0,
+    "average_heart_rate": 88,
+    "calories": 186,
+    "steps": 1977,
+    "updated_at": "2026-08-14T16:40:12.656920+00:00"
   }
 ]
