@@ -838,5 +838,26 @@
     "calories": null,
     "steps": 1856,
     "updated_at": "2026-08-15T16:12:19.458297+00:00"
+  },
+  {
+    "date": "2026-08-16",
+    "sleep_score": 87,
+    "total_sleep_minutes": 477.0,
+    "deep_sleep_minutes": 80.0,
+    "hrv_status": "BALANCED",
+    "hrv_value": 91.0,
+    "resting_heart_rate": 47,
+    "body_battery_morning": 98,
+    "recovery_time_minutes": 2592,
+    "acute_training_load": 644,
+    "training_status": "STRAINED",
+    "workout_type": "running",
+    "workout_name": "Milford - Recovery",
+    "workout_duration_minutes": 43.5,
+    "running_distance_miles": 4.1,
+    "average_heart_rate": 139,
+    "calories": 404,
+    "steps": 10355,
+    "updated_at": "2026-08-16T16:12:42.949824+00:00"
   }
 ]
