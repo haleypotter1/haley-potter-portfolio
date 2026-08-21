@@ -1,9 +1,9 @@
 {
-    "last_updated": "2026-08-20T12:24:30.803820",
+    "last_updated": "2026-08-21T12:23:40.850890",
     "stats": {
-        "year_to_date_miles": 475.2,
-        "weekly_miles": 21.2,
-        "run_count": 190,
+        "year_to_date_miles": 486.0,
+        "weekly_miles": 29.4,
+        "run_count": 192,
         "lift_count": 94,
         "year_to_date_lift_hours": 88.6
     },
@@ -54,10 +54,20 @@
         },
         {
             "month": "2026-08",
-            "miles": 72.6
+            "miles": 83.4
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-08-20",
+            "activity": "Sprint",
+            "distance_miles": 3.49
+        },
+        {
+            "date": "2026-08-20",
+            "activity": "Milford Running",
+            "distance_miles": 7.26
+        },
         {
             "date": "2026-08-18",
             "activity": "Base",
@@ -87,16 +97,6 @@
             "date": "2026-08-11",
             "activity": "Base",
             "distance_miles": 4.51
-        },
-        {
-            "date": "2026-08-09",
-            "activity": "Base",
-            "distance_miles": 14.35
-        },
-        {
-            "date": "2026-08-07",
-            "activity": "Recovery",
-            "distance_miles": 3.0
         }
     ],
     "recent_lifts": [
