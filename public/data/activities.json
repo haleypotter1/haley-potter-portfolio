@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-08-28T21:34:58.064005",
+    "last_updated": "2026-08-29T15:54:25.019951",
     "stats": {
-        "year_to_date_miles": 517.9,
-        "weekly_miles": 30.0,
-        "run_count": 198,
-        "lift_count": 96,
-        "year_to_date_lift_hours": 90.4
+        "year_to_date_miles": 523.6,
+        "weekly_miles": 35.8,
+        "run_count": 200,
+        "lift_count": 98,
+        "year_to_date_lift_hours": 92.3
     },
     "mileage_history": [
         {
@@ -54,10 +54,20 @@
         },
         {
             "month": "2026-08",
-            "miles": 115.3
+            "miles": 121.0
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-08-29",
+            "activity": "Recovery",
+            "distance_miles": 1.36
+        },
+        {
+            "date": "2026-08-28",
+            "activity": "Base",
+            "distance_miles": 4.4
+        },
         {
             "date": "2026-08-27",
             "activity": "Base",
@@ -87,19 +97,19 @@
             "date": "2026-08-21",
             "activity": "Recovery",
             "distance_miles": 1.85
-        },
-        {
-            "date": "2026-08-20",
-            "activity": "Sprint",
-            "distance_miles": 3.49
-        },
-        {
-            "date": "2026-08-20",
-            "activity": "Milford Running",
-            "distance_miles": 7.26
         }
     ],
     "recent_lifts": [
+        {
+            "date": "2026-08-29",
+            "activity": "Strength",
+            "duration_minutes": 63.1
+        },
+        {
+            "date": "2026-08-28",
+            "activity": "Strength",
+            "duration_minutes": 56.5
+        },
         {
             "date": "2026-08-27",
             "activity": "Strength",
@@ -119,16 +129,6 @@
             "date": "2026-08-18",
             "activity": "Strength",
             "duration_minutes": 49.4
-        },
-        {
-            "date": "2026-08-16",
-            "activity": "Strength",
-            "duration_minutes": 47.7
-        },
-        {
-            "date": "2026-08-15",
-            "activity": "Strength",
-            "duration_minutes": 42.7
         }
     ]
 }
