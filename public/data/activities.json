@@ -1,9 +1,9 @@
 {
-    "last_updated": "2026-09-03T15:25:45.896077",
+    "last_updated": "2026-09-04T15:22:23.456393",
     "stats": {
-        "year_to_date_miles": 542.1,
-        "weekly_miles": 28.5,
-        "run_count": 203,
+        "year_to_date_miles": 544.7,
+        "weekly_miles": 26.9,
+        "run_count": 204,
         "lift_count": 100,
         "year_to_date_lift_hours": 93.6
     },
@@ -54,10 +54,15 @@
         },
         {
             "month": "2026-09",
-            "miles": 9.0
+            "miles": 11.6
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-09-03",
+            "activity": "Recovery",
+            "distance_miles": 2.6
+        },
         {
             "date": "2026-09-02",
             "activity": "Long Run",
@@ -92,11 +97,6 @@
             "date": "2026-08-25",
             "activity": "Long Run",
             "distance_miles": 14.16
-        },
-        {
-            "date": "2026-08-24",
-            "activity": "Base",
-            "distance_miles": 3.86
         }
     ],
     "recent_lifts": [
