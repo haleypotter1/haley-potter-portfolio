@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-09-19T14:59:27.812131",
+    "last_updated": "2026-09-20T15:03:05.528780",
     "stats": {
         "year_to_date_miles": 596.6,
-        "weekly_miles": 10.3,
+        "weekly_miles": 4.1,
         "run_count": 207,
-        "lift_count": 107,
-        "year_to_date_lift_hours": 99.9
+        "lift_count": 109,
+        "year_to_date_lift_hours": 101.9
     },
     "mileage_history": [
         {
@@ -101,6 +101,16 @@
     ],
     "recent_lifts": [
         {
+            "date": "2026-09-20",
+            "activity": "Strength",
+            "duration_minutes": 60.2
+        },
+        {
+            "date": "2026-09-19",
+            "activity": "Strength",
+            "duration_minutes": 56.5
+        },
+        {
             "date": "2026-09-18",
             "activity": "Strength",
             "duration_minutes": 85.0
@@ -119,16 +129,6 @@
             "date": "2026-09-09",
             "activity": "Strength",
             "duration_minutes": 58.8
-        },
-        {
-            "date": "2026-09-08",
-            "activity": "Strength",
-            "duration_minutes": 17.3
-        },
-        {
-            "date": "2026-09-07",
-            "activity": "Strength",
-            "duration_minutes": 60.2
         }
     ]
 }
