@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-09-28T18:54:32.459859",
+    "last_updated": "2026-09-29T17:12:33.169598",
     "stats": {
-        "year_to_date_miles": 600.2,
-        "weekly_miles": 3.6,
+        "year_to_date_miles": 605.5,
+        "weekly_miles": 8.8,
         "run_count": 207,
-        "lift_count": 113,
-        "year_to_date_lift_hours": 105.7
+        "lift_count": 114,
+        "year_to_date_lift_hours": 106.1
     },
     "mileage_history": [
         {
@@ -54,10 +54,15 @@
         },
         {
             "month": "2026-09",
-            "miles": 67.1
+            "miles": 72.4
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-09-28",
+            "activity": "Springfield Running",
+            "distance_miles": 5.25
+        },
         {
             "date": "2026-09-26",
             "activity": "Terrace Park Running",
@@ -92,14 +97,14 @@
             "date": "2026-09-09",
             "activity": "Treadmill Running",
             "distance_miles": 1.01
-        },
-        {
-            "date": "2026-09-09",
-            "activity": "Base",
-            "distance_miles": 4.3
         }
     ],
     "recent_lifts": [
+        {
+            "date": "2026-09-29",
+            "activity": "Strength",
+            "duration_minutes": 23.7
+        },
         {
             "date": "2026-09-28",
             "activity": "Strength",
@@ -124,11 +129,6 @@
             "date": "2026-09-20",
             "activity": "Strength",
             "duration_minutes": 60.2
-        },
-        {
-            "date": "2026-09-19",
-            "activity": "Strength",
-            "duration_minutes": 56.5
         }
     ]
 }
