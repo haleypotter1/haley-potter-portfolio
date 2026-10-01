@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-09-30T17:10:39.303929",
+    "last_updated": "2026-10-01T17:40:07.442729",
     "stats": {
         "year_to_date_miles": 605.5,
         "weekly_miles": 8.8,
@@ -8,10 +8,6 @@
         "year_to_date_lift_hours": 106.1
     },
     "mileage_history": [
-        {
-            "month": "2025-10",
-            "miles": 32.9
-        },
         {
             "month": "2025-11",
             "miles": 40.2
@@ -55,6 +51,10 @@
         {
             "month": "2026-09",
             "miles": 72.4
+        },
+        {
+            "month": "2026-10",
+            "miles": 0
         }
     ],
     "recent_runs": [
