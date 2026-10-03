@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-10-02T16:59:17.916003",
+    "last_updated": "2026-10-03T15:22:48.506452",
     "stats": {
-        "year_to_date_miles": 605.5,
-        "weekly_miles": 6.8,
-        "run_count": 207,
-        "lift_count": 114,
-        "year_to_date_lift_hours": 106.1
+        "year_to_date_miles": 610.7,
+        "weekly_miles": 10.4,
+        "run_count": 208,
+        "lift_count": 115,
+        "year_to_date_lift_hours": 107.1
     },
     "mileage_history": [
         {
@@ -54,10 +54,15 @@
         },
         {
             "month": "2026-10",
-            "miles": 0
+            "miles": 5.2
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-10-02",
+            "activity": "4mi Easy Run (",
+            "distance_miles": 5.15
+        },
         {
             "date": "2026-09-28",
             "activity": "Springfield Running",
@@ -92,14 +97,14 @@
             "date": "2026-09-11",
             "activity": "Sprint",
             "distance_miles": 4.91
-        },
-        {
-            "date": "2026-09-09",
-            "activity": "Treadmill Running",
-            "distance_miles": 1.01
         }
     ],
     "recent_lifts": [
+        {
+            "date": "2026-10-02",
+            "activity": "Strength",
+            "duration_minutes": 60.3
+        },
         {
             "date": "2026-09-29",
             "activity": "Strength",
@@ -124,11 +129,6 @@
             "date": "2026-09-22",
             "activity": "Strength",
             "duration_minutes": 55.7
-        },
-        {
-            "date": "2026-09-20",
-            "activity": "Strength",
-            "duration_minutes": 60.2
         }
     ]
 }
