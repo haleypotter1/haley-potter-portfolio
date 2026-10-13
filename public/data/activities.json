@@ -1,9 +1,9 @@
 {
-    "last_updated": "2026-10-12T20:33:29.301982",
+    "last_updated": "2026-10-13T18:37:42.749506",
     "stats": {
-        "year_to_date_miles": 651.4,
-        "weekly_miles": 22.3,
-        "run_count": 208,
+        "year_to_date_miles": 657.4,
+        "weekly_miles": 24.5,
+        "run_count": 209,
         "lift_count": 117,
         "year_to_date_lift_hours": 108.5
     },
@@ -54,10 +54,15 @@
         },
         {
             "month": "2026-10",
-            "miles": 45.9
+            "miles": 51.9
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-10-12",
+            "activity": "Milford Running",
+            "distance_miles": 6.01
+        },
         {
             "date": "2026-10-10",
             "activity": "Queen Bee Half Marathon",
@@ -92,11 +97,6 @@
             "date": "2026-10-02",
             "activity": "4mi Easy Run (",
             "distance_miles": 5.15
-        },
-        {
-            "date": "2026-09-28",
-            "activity": "Springfield Running",
-            "distance_miles": 5.25
         }
     ],
     "recent_lifts": [
