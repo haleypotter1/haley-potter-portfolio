@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-10-16T15:43:50.142608",
+    "last_updated": "2026-10-17T14:35:47.191566",
     "stats": {
-        "year_to_date_miles": 666.5,
-        "weekly_miles": 28.3,
-        "run_count": 210,
-        "lift_count": 118,
-        "year_to_date_lift_hours": 109.9
+        "year_to_date_miles": 668.5,
+        "weekly_miles": 17.1,
+        "run_count": 211,
+        "lift_count": 119,
+        "year_to_date_lift_hours": 110.8
     },
     "mileage_history": [
         {
@@ -54,10 +54,15 @@
         },
         {
             "month": "2026-10",
-            "miles": 61.0
+            "miles": 63.0
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-10-16",
+            "activity": "Milford Running",
+            "distance_miles": 2.01
+        },
         {
             "date": "2026-10-15",
             "activity": "Milford Running",
@@ -92,14 +97,14 @@
             "date": "2026-10-06",
             "activity": "3.25mi Easy Run",
             "distance_miles": 3.83
-        },
-        {
-            "date": "2026-10-04",
-            "activity": "W5 Sun Easy Run #2 - 3.25mi Easy",
-            "distance_miles": 3.43
         }
     ],
     "recent_lifts": [
+        {
+            "date": "2026-10-16",
+            "activity": "Strength",
+            "duration_minutes": 55.7
+        },
         {
             "date": "2026-10-14",
             "activity": "Strength",
@@ -124,11 +129,6 @@
             "date": "2026-09-29",
             "activity": "Strength",
             "duration_minutes": 23.7
-        },
-        {
-            "date": "2026-09-28",
-            "activity": "Strength",
-            "duration_minutes": 59.1
         }
     ]
 }
