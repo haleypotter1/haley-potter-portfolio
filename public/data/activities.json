@@ -1,11 +1,11 @@
 {
-    "last_updated": "2026-10-17T14:35:47.191566",
+    "last_updated": "2026-10-18T15:03:24.258259",
     "stats": {
-        "year_to_date_miles": 668.5,
-        "weekly_miles": 17.1,
-        "run_count": 211,
-        "lift_count": 119,
-        "year_to_date_lift_hours": 110.8
+        "year_to_date_miles": 684.3,
+        "weekly_miles": 32.8,
+        "run_count": 213,
+        "lift_count": 120,
+        "year_to_date_lift_hours": 111.4
     },
     "mileage_history": [
         {
@@ -54,10 +54,20 @@
         },
         {
             "month": "2026-10",
-            "miles": 63.0
+            "miles": 78.8
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-10-17",
+            "activity": "Treadmill Running",
+            "distance_miles": 3.0
+        },
+        {
+            "date": "2026-10-17",
+            "activity": "Hamilton County Running",
+            "distance_miles": 12.71
+        },
         {
             "date": "2026-10-16",
             "activity": "Milford Running",
@@ -87,19 +97,14 @@
             "date": "2026-10-09",
             "activity": "W6 Fri Easy Run #2 - 3.25mi Easy",
             "distance_miles": 1.88
-        },
-        {
-            "date": "2026-10-07",
-            "activity": "W6 Wed Tempo - Over and Unders 1",
-            "distance_miles": 3.39
-        },
-        {
-            "date": "2026-10-06",
-            "activity": "3.25mi Easy Run",
-            "distance_miles": 3.83
         }
     ],
     "recent_lifts": [
+        {
+            "date": "2026-10-17",
+            "activity": "Strength",
+            "duration_minutes": 34.8
+        },
         {
             "date": "2026-10-16",
             "activity": "Strength",
@@ -124,11 +129,6 @@
             "date": "2026-10-02",
             "activity": "Strength",
             "duration_minutes": 60.3
-        },
-        {
-            "date": "2026-09-29",
-            "activity": "Strength",
-            "duration_minutes": 23.7
         }
     ]
 }
