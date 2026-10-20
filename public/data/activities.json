@@ -1,9 +1,9 @@
 {
-    "last_updated": "2026-10-19T17:54:49.169590",
+    "last_updated": "2026-10-20T15:59:00.668649",
     "stats": {
-        "year_to_date_miles": 684.3,
-        "weekly_miles": 32.8,
-        "run_count": 212,
+        "year_to_date_miles": 689.1,
+        "weekly_miles": 31.7,
+        "run_count": 213,
         "lift_count": 121,
         "year_to_date_lift_hours": 112.4
     },
@@ -54,10 +54,15 @@
         },
         {
             "month": "2026-10",
-            "miles": 78.8
+            "miles": 83.6
         }
     ],
     "recent_runs": [
+        {
+            "date": "2026-10-19",
+            "activity": "Cincinnati Running",
+            "distance_miles": 4.87
+        },
         {
             "date": "2026-10-17",
             "activity": "Treadmill Running",
@@ -92,11 +97,6 @@
             "date": "2026-10-10",
             "activity": "Queen Bee Half Marathon",
             "distance_miles": 13.21
-        },
-        {
-            "date": "2026-10-09",
-            "activity": "W6 Fri Easy Run #2 - 3.25mi Easy",
-            "distance_miles": 1.88
         }
     ],
     "recent_lifts": [
